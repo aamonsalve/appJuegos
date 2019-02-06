@@ -1,0 +1,21 @@
+<ion-header color="#975B5B">
+  <ion-toolbar color="#975B5B">
+    <ion-title style="color:#FD9927">
+      {{"Inicio Sesion" | translate  }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding color="rgb(97, 59, 59)">
+  
+  <img class="dos" src="assets/imagenes/gif.gif" alt="">
+
+  <div class="botones">
+       <ion-button class="log-in-button" color="danger" expand="block" (click)="doGoogleLogin()">
+        {{"Inicia Sesion con Google" | translate }}
+      </ion-button>
+  </div>
+  <img class="tres"  src="assets/imagenes/gif2.gif" alt="" (click)="presentAlert2()">
+
+</ion-content>

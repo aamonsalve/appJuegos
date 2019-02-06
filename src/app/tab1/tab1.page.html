@@ -1,0 +1,83 @@
+<ion-header color="#975B5B">
+  <ion-toolbar color="#975B5B">
+    <ion-title style="color:#FD9927">
+      {{"Principal" | translate }}
+    </ion-title>
+  </ion-toolbar>
+  <ion-segment [(ngModel)]="category" (ionChange)="slides.slideTo(category)" style="background-color: #221122 ">
+    <ion-segment-button layout="icon-start" value="0" style="--padding-end:0px;--padding-start:0px" style="color:#FD9927">
+      <ion-icon name="logo-steam" style="margin-right:1px;zoom:0.8"></ion-icon>
+      <ion-label>Steam</ion-label>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start" value="1" style="color:#FD9927">
+      <ion-icon name="logo-playstation" style="margin-right:1px;zoom:0.8"></ion-icon>
+      <ion-label>Play 4</ion-label>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start" value="2" style="color:#FD9927">
+      <ion-icon name="logo-xbox" style="margin-right:1px;zoom:0.8"></ion-icon>
+      <ion-label>Xbox One</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div id='indicator' class="SwipedTabs-indicatorSegment" [ngStyle]=" 
+  {'width.%': (97/this.tabs.length)}" style="margin-top:2px"></div>
+
+</ion-header>
+
+
+<ion-content style="color:#FD9927">
+  <ion-refresher style="color:#FD9927" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content style="color:#FD9927" pullingIcon="arrow-dropdown" refreshingSpinner="crescent"
+      refreshingText="Refrescando">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-slides #slides (ionSlideTransitionStart)="updateIndicatorPosition();updateCat(slides.getActiveIndex())"
+    (ionSlideWillChange)="updateIndicatorPosition()" (ionSlideDidChange)="updateIndicatorPosition()" #SwipedTabsSlider
+    (ionSlideDrag)="animateIndicator($event)">
+
+    <ion-slide class="fixed-scroll">
+      <ion-card *ngFor="let item of listadoPanel;let i = index" style="background-color: #351b35">
+        <img src="{{item.foto}}" />
+        <ion-card-header>
+          <ion-buttons>
+            <ion-card-title style="color:#FD9927">{{item.titulo}}</ion-card-title>
+          </ion-buttons>
+        </ion-card-header>
+        <ion-card-content (click)="abrirModal(item.id, item.titulo, item.foto, item.video, item.descripcionC)" style="color:#FD9927">
+          <p>{{item.descripcionP}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+
+    <ion-slide class="fixed-scroll">
+      <ion-card *ngFor="let item of listadoPanelPs4;let i = index" style="background-color: #442244">
+        <img src="{{item.foto}}" />
+        <ion-card-header>
+          <ion-buttons>
+            <ion-card-title style="color:#FD9927">{{item.titulo}}</ion-card-title>
+          </ion-buttons>
+        </ion-card-header>
+        <ion-card-content (click)="abrirModal(item.id, item.titulo, item.foto, item.video, item.descripcionC)" style="color:#FD9927">
+          <p>{{item.descripcionP}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+
+    <ion-slide class="fixed-scroll">
+      <ion-card *ngFor="let item of listadoPanelXbox;let i = index" style="background-color: #442244">
+        <img src="{{item.foto}}" />
+        <ion-card-header>
+          <ion-buttons>
+            <ion-card-title style="color:#FD9927">{{item.titulo}}</ion-card-title>
+          </ion-buttons>
+        </ion-card-header>
+        <ion-card-content (click)="abrirModal(item.id, item.titulo, item.foto, item.video, item.descripcionC)" style="color:#FD9927">
+          <p>{{item.descripcionP}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+
+  </ion-slides>
+</ion-content>

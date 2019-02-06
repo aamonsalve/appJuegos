@@ -1,0 +1,27 @@
+<ion-header color="#975B5B">
+  <ion-toolbar color="#975B5B">
+      <ion-buttons slot="start">
+          <ion-icon name="arrow-back" style="color:#FD9927" (click)="dismiss()"></ion-icon>
+          <ion-title style="color:#FD9927">{{this.titulo}}</ion-title>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content color="rgb(97, 59, 59)" >
+  <ion-card style="background-color: #351b35">
+    <iframe [src]="getSafeUrl()" width="560" height="315"  frameborder="0" frameborder="0" allow="accelerometer; autoplay; 
+    encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <ion-card-header>
+        <ion-buttons>
+            <ion-card-title style="color:#FD9927" >{{this.titulo}}</ion-card-title>
+        </ion-buttons>
+    </ion-card-header>
+    <ion-card-content style="color:#FD9927" >
+        <p >{{this.descripcionC}}</p>
+        <ion-img  src="{{this.foto}}"></ion-img>
+        
+       
+    </ion-card-content>
+</ion-card>
+</ion-content>

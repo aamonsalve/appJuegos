@@ -1,0 +1,32 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>{{"Opciones" | translate }}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle>
+              <ion-item>
+                <ion-icon style="color:#FD9927" slot="start" name="flag"></ion-icon>
+                <ion-label style="color:#FD9927" >{{"idioma"| translate }}</ion-label>
+                <ion-select placeholder="Idioma" (ionChange)="cambiarIdioma($event)" style="color:#FD9927">
+                    <ion-select-option  style="color:#FD9927" value="en">Inglés</ion-select-option>
+                    <ion-select-option  style="color:#FD9927" value="es" >Español</ion-select-option>
+                  </ion-select>
+              </ion-item>
+            </ion-menu-toggle>
+            <ion-menu-toggle>
+              <ion-item (click)="doGoogleLogout()">
+                <ion-icon style="color:#FD9927" slot="start" name="power"></ion-icon>
+                <ion-label style="color:#FD9927">{{"Desconectarse" | translate }}</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

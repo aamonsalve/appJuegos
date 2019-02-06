@@ -1,0 +1,24 @@
+  <ion-header color="#975B5B">
+      <ion-toolbar color="#975B5B">
+          <ion-buttons slot="start">
+              <ion-icon name="arrow-back" style="color:#FD9927" (click)="dismiss()"></ion-icon>
+              <ion-title style="color:#FD9927">{{"Usuario"| translate }}</ion-title>
+          </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    
+  <ion-content  padding color="rgb(34,17,34)" *ngIf='userReady'>
+      <ion-card style=" background-color: #221122">
+          <ion-img [src]="user.picture"></ion-img>
+          <ion-card-header>
+            <ion-card-title style="color:#FD9927">{{user.name}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p style="color:#FD9927">{{user.email}}</p>
+          </ion-card-content>
+          <ion-button expand="block" (click)="doGoogleLogout()">{{"Desconectarse" | translate }}</ion-button>
+        </ion-card>
+   
+  
+  </ion-content>
+  
