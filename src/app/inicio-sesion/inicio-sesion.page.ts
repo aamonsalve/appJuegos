@@ -6,6 +6,10 @@ import { LoadingController, AlertController, Platform, ModalController, ToastCon
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { TranslateModule } from '@ngx-translate/core';
+import { CustomToastModule } from '../customModules/custom-toast/custom-toast.module';
+import { BackbuttonService } from '../servicios/backbutton.service';
+
+
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -20,6 +24,7 @@ export class InicioSesionPage  {
     private modalController:ModalController,
     private nativeStorage: NativeStorage,
     public toastCtrl: ToastController,
+    private back: BackbuttonService,
     public loadingController: LoadingController,
     private router: Router,
     private platform: Platform,

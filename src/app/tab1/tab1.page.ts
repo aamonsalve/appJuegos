@@ -7,6 +7,9 @@ import { JuegoPage } from '../juego/juego.page';
 import { Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
+import { BackbuttonService } from 'src/app/servicios/backbutton.service';
+
+
 
 
 
@@ -36,6 +39,7 @@ export class Tab1Page  {
     private Steam: SteamService,
     private Ps4:Ps4Service,
     private router: Router,
+    private back: BackbuttonService,
     private Xbox:XboxService,
     private modalContoller:ModalController) {
       this.initializeItems();

@@ -23,6 +23,10 @@ import { Vibration } from '@ionic-native/vibration/ngx';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { BackbuttonService } from './servicios/backbutton.service';
+import { NetworkService } from './servicios/network.service';
+import { Network } from '@ionic-native/network/ngx';
+import { CustomToastModule } from './customModules/custom-toast/custom-toast.module';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -45,7 +49,11 @@ export function createTranslateLoader(http: HttpClient) {
     VideoPlayer,
     Vibration,
     SplashScreen,
+    BackbuttonService,
     GooglePlus,
+    Network,  
+    NetworkService,
+    CustomToastModule,
     NativeStorage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

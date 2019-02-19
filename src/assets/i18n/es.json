@@ -5,5 +5,7 @@
     "Usuario": "Usuario",
     "Inicio Sesion": "Inicio Sesion",
     "Inicia Sesion con Google": "Inicia Sesion con Google",
-    "Opciones":"Opciones"
+    "Opciones":"Opciones",
+    "internet":"¡Bien! Estás conectado de nuevo sobre  ",
+    "nointernet":"¡Vaya! No hay conexión con internet"
 }

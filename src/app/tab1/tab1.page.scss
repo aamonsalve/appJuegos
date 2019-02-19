@@ -5,6 +5,8 @@ ion-title{ text-align: center;}
 
 ion-header{  background-color: #442244
     !important;}
+
+   
     
     ion-slides{background-color: #221122 !important;}
     ion-slide{background-color: #221122 !important;}
@@ -34,12 +36,15 @@ display: none;
   -moz-transition:  0s all;
   -o-transition:  0s all;
   transition:  0s all;
-  transform-origin: top 0 left 0;
+  transform-origin: top 0 left 0 ;
   height: 2px;
   position: relative;
   top: -2px;
+  left: 3px;
   background-color: var(--ion-color-tertiary) !important;
 }
+
+
 ion-slides{background-color: #351b35 !important;}
 
 /* para que el slide ocupe toda la pantalla */

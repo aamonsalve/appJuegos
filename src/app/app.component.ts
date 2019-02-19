@@ -6,7 +6,9 @@ import { Router } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { TranslateService } from '@ngx-translate/core';
-
+import { BackbuttonService } from './servicios/backbutton.service';
+import { NetworkService } from './servicios/network.service';
+import { CustomToastModule } from './customModules/custom-toast/custom-toast.module';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +20,9 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private traducir :TranslateService,
+    private back :BackbuttonService,
+    private toast: CustomToastModule,
+    private network: NetworkService,
     private googlePlus: GooglePlus,
     private nativeStorage: NativeStorage,
     private router: Router
@@ -47,6 +52,8 @@ export class AppComponent {
       })
       this.statusBar.styleDefault();
     });
+
+    this.traducir.setDefaultLang('es');
   }
   doGoogleLogout(){
     this.googlePlus.logout()

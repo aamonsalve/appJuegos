@@ -5,5 +5,7 @@
     "Desconectarse": "Logout",
     "Inicio Sesion": "Login",
     "Inicia Sesion con Google": "Log in with Google",
-    "Opciones":"Option"
+    "Opciones":"Option",
+    "internet":"Good! You are online on ",
+    "nointernet":"Oups! You are offline"
 }
