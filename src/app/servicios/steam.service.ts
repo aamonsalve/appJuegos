@@ -13,6 +13,9 @@ export class SteamService {
     this.miSteam = fireStore.collection<any>(environment.firebaseConfig.steamColection)
   }
 
+  /**
+   * Recupera todos los juegos de steam
+   */
   leeSteam() {
     return this.miSteam.ref.get();
   }

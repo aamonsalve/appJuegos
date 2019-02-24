@@ -34,11 +34,16 @@ export class JuegoPage implements OnInit {
 
   ngOnInit() {
   }
+   /**
+   * Método que nos devuelve a la pagina anterior y cuando le demos al boton nos vibre.
+   */
   dismiss(){
     this.modalController.dismiss(null, undefined);
     this.vibracion.vibrate(40);
   }
-
+ /**
+   * Método que permite reproducir el video ya que sin esto nos diria que no es segura la url
+   */
   getSafeUrl() {
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.navparams.get('video'));     
 }

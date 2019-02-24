@@ -31,6 +31,9 @@ export class InicioSesionPage  {
     public alertController: AlertController
   ) { }
  
+    /**
+   * funcion para entrar con el login de google
+   */
 
   async doGoogleLogin(){
     const loading = await this.loadingController.create({
@@ -49,6 +52,7 @@ export class InicioSesionPage  {
           email: user.email,
           picture: user.imageUrl
         })
+        //si nos hemos registrado correctamente vamos a tabs la pantalla principal
         .then(() => {
            this.router.navigate(["/tabs"]);
         }, (error) => {
@@ -64,6 +68,9 @@ export class InicioSesionPage  {
       })
   }
 
+  /**
+   * Muestra una alert que sale cuando no funciona cordova por ejemplo en el navegador.
+   */
   async presentAlert() {
     const alert = await this.alertController.create({
        message: 'Cordova no funciona en el navegador. Pruebelo en su emulador',
@@ -72,11 +79,18 @@ export class InicioSesionPage  {
 
     await alert.present();
   }
-
+ /**
+   * Muestra una alert de cargando
+   * @param loading 
+   */
 
   async presentLoading(loading) {
     return await loading.present();
   }
+
+   /**
+   * Muestra una alert con el nombre de la app y con boton para darle a ok
+   */
   async presentAlert2() {
     const alert = await this.alertController.create({
        message: 'Danger Bit',

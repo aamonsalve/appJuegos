@@ -12,6 +12,7 @@ export class CustomToastModule {
   toast;
   constructor(private toastCtrl: ToastController) { }
 
+  
   async show(msg) {
     const toast = await this.toastCtrl.create({
       message: msg,

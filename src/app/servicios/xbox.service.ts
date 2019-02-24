@@ -11,6 +11,9 @@ export class XboxService {
     this.miSteam = fireStore.collection<any>(environment.firebaseConfig.xboxColection)
   }
 
+  /**
+   * Recupera todos los juegos de xbox.
+   */
   leeXbox() {
     return this.miSteam.ref.get();
   }

@@ -46,6 +46,10 @@ export class Tab1Page  {
 
   }
 
+   /**
+   * Actualiza la categoría que esté en ese momento activa.
+   * @param cat 
+   */
   updateCat(cat: Promise<any>) {
     cat.then(dat => {
       this.category = dat;
@@ -53,6 +57,9 @@ export class Tab1Page  {
     });
   }
 
+   /**
+   * Método que permite actualizar el indicado cuando se cambia de slide.
+   */
   updateIndicatorPosition() {
     this.SwipedTabsSlider.getActiveIndex().then(i => {
       if (this.ntabs > i) {  // this condition is to avoid passing to incorrect index
@@ -61,6 +68,9 @@ export class Tab1Page  {
     });
   }
 
+   /**
+   * Método que anima la "rayita" mientras nos estamos deslizando por el slide.
+   */
   animateIndicator(e) {
     //console.log(e.target.swiper.progress);
     if (this.SwipedTabsIndicator)
@@ -73,6 +83,10 @@ export class Tab1Page  {
 initializeItems(){
   this.listadoPanel=this.listado;
 }
+/**
+   * Loading
+   * @param msg 
+   */
   async presentLoading(msg) {
     let myloading = await this.loadingController.create({
       message: msg
@@ -80,6 +94,10 @@ initializeItems(){
     return await myloading.present();
   }
 
+  /**
+   * Se ejecuta cuando la página ha entrado completamente y ahora es la página activa.
+   * Carga los datos de todas las paginas y ademas de la rayita y de un loading hasta que cargue los datos
+   */
   ionViewDidEnter() {
     
     this.SwipedTabsIndicator = document.getElementById("indicator");
@@ -114,7 +132,10 @@ initializeItems(){
 
   }
 
-
+ /**
+   * Actualizamos la pagina de ps4, stema y xbox.
+   * 
+   */
   actualizarPage() {
 
     this.Steam.leeSteam().then((querySnapshot) => {
@@ -147,7 +168,10 @@ initializeItems(){
     });
   }
 
-
+ /**
+   * inicializamos los datos obtenidos.
+   * @param ev 
+   */
   getInitializeItems(ev: any) {
     this.initializeItems();
     const val = ev.target.value;
@@ -159,6 +183,10 @@ initializeItems(){
     }
   }
 
+  /**
+   * obtenemos los datos.
+   * @param ev 
+   */
   getItems(ev: any) {
     this.initializeItems();
     let val = ev.target.value;
@@ -169,7 +197,14 @@ initializeItems(){
     }
   }
 
-
+/**
+   * Creamos el modal con los datos a mostrar
+   * @param id 
+   * @param titulo 
+   * @param foto 
+   * @param video 
+   * @param descripcionC
+   */
 
   async presentModal(id: any, titulo: any, foto: any, video: any, descripcionC: any) {
     const modal = await this.modalContoller.create({
@@ -180,9 +215,23 @@ initializeItems(){
     return await modal.present();
   }
 
+  /**
+   * Abrimos el modal con los datos pasados
+   * @param id 
+   * @param titulo 
+   * @param foto 
+   * @param video 
+   * @param descripcionC
+   */
+
   abrirModal(id, titulo, foto, video, descripcionC) {
     this.presentModal(id, titulo, foto, video, descripcionC)
   }
+
+ /**
+   * componente con el cual refrescaremos las paginas.
+   * @param refresher 
+   */
 
   doRefresh(refresher) {
     this.Steam.leeSteam()

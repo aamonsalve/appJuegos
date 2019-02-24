@@ -11,7 +11,9 @@ export class Ps4Service {
   constructor(private fireStore: AngularFirestore) {
     this.miSteam = fireStore.collection<any>(environment.firebaseConfig.ps4Colection)
   }
-
+/**
+   * Recupera todos los juegos de ps4.
+   */
   leePs4() {
     return this.miSteam.ref.get();
   }

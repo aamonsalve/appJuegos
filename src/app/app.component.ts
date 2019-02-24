@@ -29,13 +29,20 @@ export class AppComponent {
   ) {
     this.initializeApp();
   }
+  /**
+   * Se utiliza para cambiar de idioma.
+   * @param $event
+   */
   cambiarIdioma($event) {
     //console.log(this.langModel);
    this.traducir.use($event.target.value);
    console.log($event.target.value);
    
   }  
-  
+  /**
+   * Se ejecuta al iniciar la aplicación.
+   * Se nos va a la pagina de inicio estemos o no logueados, para volver a loguarnos por si queremos usar otro.S
+   */
   initializeApp() {
     this.platform.ready().then(() => {
       //Here we will check if the user is already logged in
@@ -55,6 +62,9 @@ export class AppComponent {
 
     this.traducir.setDefaultLang('es');
   }
+  /**
+   * Se ejecuta para hacer logout de la cuenta de google.
+   */
   doGoogleLogout(){
     this.googlePlus.logout()
     .then(res => {

@@ -26,6 +26,9 @@ export class Tab2Page implements OnInit {
     private router: Router
   ) { }
 
+   /**
+   * Metodo para cargar la pagina con todos los datos , del nombre, correo y la foto del email.
+   */
   async ngOnInit() {
     const loading = await this.loadingController.create({
       message: 'Espere...'
@@ -45,7 +48,9 @@ export class Tab2Page implements OnInit {
       loading.dismiss();
     });
   }
-
+ /**
+   * Cuando nos deconectamos con nuestra cuenta y volvemos a la pantalla de inicio sesion
+   */
   doGoogleLogout(){
     this.googlePlus.logout()
     .then(res => {
@@ -56,6 +61,9 @@ export class Tab2Page implements OnInit {
       console.log(err);
     });
   }
+   /**
+   * Cuando pulsamos el boton de atras y nos volvemos a la pagina de tabs y vibra.
+   */
   dismiss(){
     this.router.navigate(["/tabs"]);
     this.vibracion.vibrate(40);
